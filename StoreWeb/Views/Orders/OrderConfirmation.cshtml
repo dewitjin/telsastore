@@ -1,0 +1,68 @@
+﻿@model StoreWeb.Models.Order
+
+@{
+    var title = "Order Confirmation";
+}
+
+<div class="text-center">
+    <h1>@title</h1>
+    <h2>Thank you for your Telsa purchase!</h2>
+</div>
+
+<div>
+    <span>
+        @Html.LabelFor(x => x.CustomerId)
+        @Html.DisplayFor(x => x.CustomerId)
+    </span>
+</div>
+
+<div>
+    <span>
+        @Html.LabelFor(x => x.CustomerName)
+        @Html.DisplayFor(x => x.CustomerName)
+    </span>
+</div>
+
+<div>
+    <span>
+        @Html.LabelFor(x => x.CreatedDateTime)
+        @Html.DisplayFor(x => x.CreatedDateTime)
+    </span>
+</div>
+
+<div>
+    <h3>
+        @Html.LabelFor(x => x.OrderItems)
+        <br />
+    </h3>
+    @if (Model != null && Model.OrderItems != null)
+    {
+        for (var i = 0; i < Model.OrderItems.Count; i++)
+        {
+
+            @*Note: order item does not have the name of the item, only the id right now*@
+            <h4 for="@Model.OrderItems[i].ItemId">Item Id: @Model.OrderItems[i].ItemId -> </h4>
+            <p>Quantity: @Html.DisplayFor(x => @Model.OrderItems[i].Quantity)</p>
+            <p>Item Price: @Html.DisplayFor(x => @Model.OrderItems[i].OrderItemPrice)</p>
+            <br>
+
+        }
+    }
+
+</div>
+
+<div>
+    <span>
+        @Html.LabelFor(x => x.OrderTax)
+        @Html.DisplayFor(x => x.OrderTax)
+    </span>
+</div>
+
+<div>
+    <span>
+        @Html.LabelFor(x => x.OrderPrice)
+        @Html.DisplayFor(x => x.OrderPrice)
+    </span>
+</div>
+
+

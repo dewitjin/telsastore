@@ -1,0 +1,17 @@
+version: '4'
+services:
+  ms-sql-server:
+    container_name: sqlServer2019
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Ilovetelsa1212"
+    ports:
+      - "1433:1433"
+  store-api:
+    container_name: store-api
+    build: .
+    environment:
+     DBServer: sqlServer2019
+    ports:
+     - "8080:80"

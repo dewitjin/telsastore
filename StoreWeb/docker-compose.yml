@@ -1,0 +1,7 @@
+version: '4'
+services:
+  store-web:
+    container_name: store-web
+    build: .
+    ports:
+     - "7070:80"

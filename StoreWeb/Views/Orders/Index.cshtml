@@ -1,0 +1,75 @@
+﻿@*Note: tax, prices are commented out for this project.*@
+@model StoreWeb.Models.Order
+
+@{
+    var title = "TESLA Order Page";
+}
+
+<div class="text-center">
+    <h1>@title</h1>
+</div>
+
+<form method="post" asp-action="CreateOrder">
+
+    <div>
+        <span>
+            @Html.LabelFor(x => x.CustomerId)
+            @Html.EditorFor(x => x.CustomerId)
+        </span>
+    </div>
+
+    <div>
+        <span>
+            @Html.LabelFor(x => x.CustomerName)
+            @Html.EditorFor(x => x.CustomerName)
+        </span>
+    </div>
+
+    <div>
+        <span>
+            @Html.LabelFor(x => x.CreatedDateTime)
+            @Html.EditorFor(x => x.CreatedDateTime)
+        </span>
+    </div>
+
+    <div>
+        <h3>
+            @Html.LabelFor(x => x.OrderItems)
+            <br />
+        </h3>
+        @if (Model != null && Model.OrderItems != null)
+        {
+            for (var i = 0; i < Model.OrderItems.Count; i++)
+            {
+                <span>
+                    <label for="@Model.OrderItems[i].ItemId"> @Model.OrderItems[i].ItemId - @Model.OrderItems[i].Name</label>
+                    <input type="number" placeholder="enter quantity" id=@Model.OrderItems[i].Quantity asp-for=@Model.OrderItems[i].Quantity value=@Model.OrderItems[i].Quantity />
+             @*       <input type="number" placeholder="price of item - computed" id=@Model.OrderItems[i].OrderItemPrice asp-for=@Model.OrderItems[i].OrderItemPrice value=@Model.OrderItems[i].OrderItemPrice disabled readonly />*@
+                    <br>
+                </span>
+
+                @Html.HiddenFor(x => Model.OrderItems[i].ItemId)
+                @Html.HiddenFor(x => Model.OrderItems[i].Quantity)
+            }
+        }
+
+    </div>
+
+    <div>
+@*        <span>
+            @Html.LabelFor(x => x.OrderTax)
+            @Html.EditorFor(x => x.OrderTax, new { htmlAttributes = new { @disabled = "disabled" }, @readonly = "readonly" })
+        </span>
+    </div>
+
+    <div>
+        <span>
+            @Html.LabelFor(x => x.OrderPrice)
+            @Html.EditorFor(x => x.OrderPrice, new { htmlAttributes = new { @disabled = "disabled" }, @readonly = "readonly" })
+        </span>
+    </div>*@
+
+    <input type="submit" value="Submit">
+</form>
+
+
