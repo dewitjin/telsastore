@@ -29,7 +29,7 @@ This will start the store API image, consisting of both API and SQL Database.<br
 
 ![telsaIndex](https://user-images.githubusercontent.com/6993716/165230296-0f7b87fe-2a66-4770-be98-04714c35c8f1.PNG)
 
-<br/ >Order Confirmation:
+<br />Order Confirmation:
 
 ![orderResult](https://user-images.githubusercontent.com/6993716/165857824-d6c8429b-ab15-42b6-bed9-055f7db4d18f.PNG)
 
