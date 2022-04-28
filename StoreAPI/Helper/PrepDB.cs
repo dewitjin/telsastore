@@ -88,7 +88,7 @@ namespace StoreAPI.Helper
 
                     //Get Id from here to set up web side
                     _db.Customers.AddRange(
-                     new Customer() { Name = "Jamese Bond", AddressId = addressID1.Id },
+                     new Customer() { Name = "James Bond", AddressId = addressID1.Id },
                      new Customer() { Name = "Gail Windsor", AddressId = addressID2.Id }
                      );
                     
