@@ -10,21 +10,17 @@ For simplicity, the backend service seeds the database with hardcoded customer a
 
 Replace taxjar token id with new one. Read: https://developers.taxjar.com/api/reference/
 
-This will start the store API image, consisting of both API and SQL Database.<br />
 <br />Clone repo.
-<br />cd .\StoreAPI
+<br /> cd to root directory.
 <br />docker compose up
 
-<br />To view api index: http://localhost:8080/welcome
+<br />To view API index: http://localhost:8080/welcome
 <br />Should see: ["Store API Version 1.0.0"]
 
-<br />To view api customers: http://localhost:8080/api/customers
+<br />To view API customers: http://localhost:8080/api/customers
 <br />Should see: [{"id":1,"name":"Gail Windsor","addressID":1},{"id":2,"name":"James Bond","addressID":2}]
 
-<br />cd .\StoreWeb
-<br />docker compose up
-
-<br />To view api index: http://localhost:7070/
+<br />To view web store index: http://localhost:7070/
 <br />Should see: Telsa Order Page
 
 ![telsaIndex](https://user-images.githubusercontent.com/6993716/165230296-0f7b87fe-2a66-4770-be98-04714c35c8f1.PNG)
