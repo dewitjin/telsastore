@@ -18,6 +18,9 @@ This will start the store API image, consisting of both API and SQL Database.<br
 <br />To view api index: http://localhost:8080/welcome
 <br />Should see: ["Store API Version 1.0.0"]
 
+<br />To view api customers: http://localhost:8080/api/customers
+<br />Should see: [{"id":1,"name":"Gail Windsor","addressID":1},{"id":2,"name":"James Bond","addressID":2}]
+
 <br />cd .\StoreWeb
 <br />docker compose up
 
@@ -31,12 +34,16 @@ This will start the store API image, consisting of both API and SQL Database.<br
 To check server:
 <br />Use Microsoft SQL Management Studio or SQL Server Object Explorer
 <br />Connect using: 
-<br />server name: localhost 
+<br />server name: localhost,1433 
 <br />login: SA
 <br />password: Ilovetelsa1212
 
 Connection string:
 <br />Server=localhost,1433;Initial Catalog=Store;Persist Security Info=True;User ID =SA;Password=Ilovetelsa1212
+
+To start with new migration:
+<br /> Delete migration folder in project.
+<br /> Use Visual Studio, run add-migration initial in command line. This will add new Migrations folder.
 
 Useful commands for testing image without docker file:
 <br />Run a sql image to test:
