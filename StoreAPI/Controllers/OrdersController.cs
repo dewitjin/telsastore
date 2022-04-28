@@ -5,7 +5,6 @@ using StoreAPI.Models.Dtos;
 using StoreAPI.Repository.IRepository;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 
 namespace StoreAPI.Controllers
 {
