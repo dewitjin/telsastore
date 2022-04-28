@@ -40,6 +40,9 @@ namespace StoreAPI
                 var conn = $"Server={server},{port};Initial Catalog={database};Persist Security Info=True;User ID ={user};Password={password}";
                 Console.WriteLine(conn);
 
+                //Note: use the connection string below for local computer server - testing
+                //var conn = $"Server=ENTER_NAME_OF_LOCAL_SERVER;Initial Catalog={database};Trusted_Connection=True;MultipleActiveResultSets=true";
+
                 services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(conn));
             }
             catch (Exception e)
@@ -55,7 +58,7 @@ namespace StoreAPI
             services.AddScoped<IItemRepository, ItemRepository>();
             services.AddControllers();
 
-            //Use if we can use localhost db
+            //Use if we can use local server and provide connection string in appsettings
             //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
