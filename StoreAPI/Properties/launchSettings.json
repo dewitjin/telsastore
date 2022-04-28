@@ -4,7 +4,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:11691",
+      "applicationUrl": "http://localhost:5000", //Note make this different from docker port that are exposed
       "sslPort": 0
     }
   },
