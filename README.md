@@ -20,6 +20,9 @@ Replace taxjar token id with new one. Read: https://developers.taxjar.com/api/re
 <br />To view API customers: http://localhost:8080/api/customers
 <br />Should see: [{"id":1,"name":"Gail Windsor","addressID":1},{"id":2,"name":"James Bond","addressID":2}]
 
+<br />To view API items: http://localhost:8080/api/items
+<br />Should see: [{"id":2,"name":"Cyber Truck"},{"id":1,"name":"Model X"}]
+
 <br />To view web store index: http://localhost:7070/
 <br />Should see: Telsa Order Page
 
