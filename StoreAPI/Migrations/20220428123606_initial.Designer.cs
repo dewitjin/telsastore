@@ -10,8 +10,8 @@ using StoreAPI.Data;
 namespace StoreAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220425222243_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220428123606_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

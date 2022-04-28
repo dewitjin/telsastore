@@ -5,6 +5,7 @@
     <!--<UserSecretsId>953555c7-b774-4bc2-be26-db88fec88d33</UserSecretsId>-->
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <PackageProjectUrl>http://localhost:44316/welcome</PackageProjectUrl>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>

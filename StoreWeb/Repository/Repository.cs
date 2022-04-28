@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,18 +56,28 @@ namespace StoreWeb.Repository
                 return null;
             }
 
-            var client = _clientFactory.CreateClient();
-            HttpResponseMessage response = await client.SendAsync(request);
+            try
+            {
+                var client = _clientFactory.CreateClient();
+                HttpResponseMessage response = await client.SendAsync(request);
 
-            if (response.StatusCode == System.Net.HttpStatusCode.Created)
-            {
-                var jsonString = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<T>(jsonString);
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                {
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<T>(jsonString);
+                }
+                else
+                {
+                    return null;
+                }
             }
-            else
+            catch (Exception e)
             {
-                return null;
+                Console.WriteLine(e.ToString());
             }
+
+            return null;
+
         }
 
         public async Task<T> GetAsync(string url, int Id)

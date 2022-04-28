@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  storeapi:
+    container_name: store-api
+    image: ${DOCKER_REGISTRY-}storeapi
+    build:
+      context: .
+      dockerfile: StoreAPI/Dockerfile
+    environment:
+      DBServer: sqlServer2019
+    ports:
+     - "8080:80"
+  storeweb:
+    container_name: store-web
+    image: ${DOCKER_REGISTRY-}storeweb
+    build:
+      context: .
+      dockerfile: StoreWeb/Dockerfile
+    ports:
+      - "7070:80"
+  ms-sql-server:
+    container_name: sqlServer2019
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Ilovetelsa1212"
+    ports:
+      - "1433:1433"

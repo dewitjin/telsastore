@@ -84,7 +84,7 @@ namespace StoreAPI.Helper
                     Console.WriteLine("Seeding customers.");
 
                     var addressID1 = _aRepo.GetAddressByStreet(addresssOne);
-                    var addressID2 = _aRepo.GetAddressByStreet(addresssTwo");
+                    var addressID2 = _aRepo.GetAddressByStreet(addresssTwo);
 
                     //Get Id from here to set up web side
                     _db.Customers.AddRange(

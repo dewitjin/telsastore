@@ -38,10 +38,9 @@ namespace StoreAPI
             try
             {
                 var conn = $"Server={server},{port};Initial Catalog={database};Persist Security Info=True;User ID ={user};Password={password}";
-                Console.WriteLine(conn);
 
                 //Note: use the connection string below for local computer server - testing
-                //var conn = $"Server=ENTER_NAME_OF_LOCAL_SERVER;Initial Catalog={database};Trusted_Connection=True;MultipleActiveResultSets=true";
+                //var conn = $"Server=ENTER_LOCAL_SERVER_NAME;Initial Catalog={database};Trusted_Connection=True;MultipleActiveResultSets=true";
 
                 services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(conn));
             }
@@ -70,7 +69,6 @@ namespace StoreAPI
                 app.UseDeveloperExceptionPage();
             }
 
-          
             PrepDB.Initialize(app); 
 
             app.UseRouting();

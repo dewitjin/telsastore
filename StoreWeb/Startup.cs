@@ -37,9 +37,7 @@ namespace StoreWeb
             {
                 app.UseHsts();
             }
-            
-            //Note: not using https for this project
-            //app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();
