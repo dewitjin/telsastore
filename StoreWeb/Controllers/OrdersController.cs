@@ -27,8 +27,8 @@ namespace StoreWeb.Controllers
                 defaultOrder.CreatedDateTime = DateTime.Now;
                 defaultOrder.OrderItems = new List<OrderItem>();
 
-                defaultOrder.OrderItems.Add(new OrderItem { ItemId = 1002, Name = "Cyber Truck", Quantity = 0, OrderItemPrice = 0 });
-                defaultOrder.OrderItems.Add(new OrderItem { ItemId = 1003, Name = "Model X", Quantity = 0, OrderItemPrice = 0 });
+                defaultOrder.OrderItems.Add(new OrderItem { ItemId = 1, Name = "Model X", Quantity = 0, OrderItemPrice = 0 });
+                defaultOrder.OrderItems.Add(new OrderItem { ItemId = 2, Name = "Cyber Truck", Quantity = 0, OrderItemPrice = 0 });
 
                 defaultOrder.OrderTax = 0;
                 defaultOrder.OrderPrice = 0;
