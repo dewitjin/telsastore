@@ -52,4 +52,7 @@ docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Ilovetelsa1212" -p 1433:1433 --nam
 Reminder:
 <br />-p 8080:80 binds container's tcp port 80 to host port 8080.
 
+Debugging:
+<br /> When switching from local to docker image development: change connection strings (web api project), and change APIBaseUrl (web project).
+
 
