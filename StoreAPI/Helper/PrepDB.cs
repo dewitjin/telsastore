@@ -20,13 +20,25 @@ namespace StoreAPI.Helper
 
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
-                SeedData(serviceScope.ServiceProvider.GetService<ApplicationDbContext>(), serviceScope.ServiceProvider.GetService<AddressRepository>());
+                SeedData(serviceScope.ServiceProvider.GetService<ApplicationDbContext>(), serviceScope.ServiceProvider.GetService<IAddressRepository>());
             }
         }
 
         public static void SeedData(ApplicationDbContext _db, IAddressRepository _aRepo)
         {
             Console.WriteLine("Applying Migrations...");
+
+            try
+            {
+                if (_db.Database.GetPendingMigrations().Count() > 0)
+                {
+                    _db.Database.Migrate();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
 
             try
             {
@@ -40,20 +52,27 @@ namespace StoreAPI.Helper
                         new Item() { Name = "Model X", UnitPrice = 10 },
                         new Item() { Name = "Cyber Truck", UnitPrice = 20 }
                         );
+                    
+                   _db.SaveChanges();
                 }
                 else
                 {
                     Console.WriteLine("Already have items data, not seeding");
                 }
 
+                var addresssOne = "123 Test Street";
+                var addresssTwo = "777 Test Street";
+                
                 if (!_db.Addresses.Any())
                 {
                     Console.WriteLine("Seeding addresses.");
 
                     _db.Addresses.AddRange(
-                       new Address() { Street = "123 Test Street", City = "Burnaby", Zip = "V5E3N1", State = "BC", Country = "CA" },
-                       new Address() { Street = "777 Test Street", City = "Vancouver", Zip = "V5N3C8", State = "BC", Country = "CA" }
+                       new Address() { Street = addresssOne, City = "Burnaby", Zip = "V5E3N1", State = "BC", Country = "CA" },
+                       new Address() { Street = addresssTwo, City = "Vancouver", Zip = "V5N3C8", State = "BC", Country = "CA" }
                        );
+                    
+                    _db.SaveChanges();
                 }
                 else
                 {
@@ -64,21 +83,21 @@ namespace StoreAPI.Helper
                 {
                     Console.WriteLine("Seeding customers.");
 
-                    var addressID1 = _aRepo.GetAddressByStreet("123 Test Street");
-                    var addressID2 = _aRepo.GetAddressByStreet("111 Test Street");
+                    var addressID1 = _aRepo.GetAddressByStreet(addresssOne);
+                    var addressID2 = _aRepo.GetAddressByStreet(addresssTwo");
 
                     //Get Id from here to set up web side
                     _db.Customers.AddRange(
                      new Customer() { Name = "Jamese Bond", AddressId = addressID1.Id },
                      new Customer() { Name = "Gail Windsor", AddressId = addressID2.Id }
                      );
+                    
+                    _db.SaveChanges();
                 }
                 else
                 {
                     Console.WriteLine("Already have customers data, not seeding");
                 }
-
-                _db.SaveChanges();
             }
             catch (Exception ex)
             {
