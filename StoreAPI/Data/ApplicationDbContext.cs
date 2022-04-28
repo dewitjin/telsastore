@@ -7,7 +7,8 @@ namespace StoreAPI.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-
+            //TODO debug uncomment
+            // Console.WriteLine($"ApplicationDbContext Connection String: {this.Database.GetDbConnection().ConnectionString}");
         }
 
         public DbSet<Customer> Customers { get; set; }
