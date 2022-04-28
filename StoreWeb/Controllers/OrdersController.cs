@@ -22,7 +22,7 @@ namespace StoreWeb.Controllers
             if (order.OrderPrice == null)
             {
                 Order defaultOrder = new Order();
-                defaultOrder.CustomerId = 1; //Customer Id key starts at 1
+                defaultOrder.CustomerId = 2; ////James Bond has identity 2
                 defaultOrder.CustomerName = "James Bond";
                 defaultOrder.CreatedDateTime = DateTime.Now;
                 defaultOrder.OrderItems = new List<OrderItem>();
