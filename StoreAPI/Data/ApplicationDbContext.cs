@@ -7,7 +7,7 @@ namespace StoreAPI.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-            //TODO debug uncomment.  When testing make sure the connection string is the right one (dev versus docker image).
+            //TODO debug uncomment.  When testing make sure the connection string is the right one (dev versus docker image). Remove images from VS and docker app, clean solution if the connection strings doesn't seem to change.
             // Console.WriteLine($"ApplicationDbContext Connection String: {this.Database.GetDbConnection().ConnectionString}");
         }
 
