@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:16245",
-      "sslPort": 443
+      "applicationUrl": "http://localhost:5050", //make this different from web api project and docker ports
+      "sslPort": 0
     }
   },
   "profiles": {
@@ -21,7 +21,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:5000"
+      "applicationUrl": "http://localhost:5050"
     },
     "Docker": {
       "commandName": "Docker",
